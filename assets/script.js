@@ -112,46 +112,60 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ── Registration Form with Formspree ──
+    // ── Registration Form with Formspree ──
   const form = document.getElementById('register-form');
   const formStatus = document.getElementById('form-status');
   const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
   if (form && submitBtn) {
-    
+
+    // Handle form submission (loading state)
     form.addEventListener('submit', function () {
       submitBtn.textContent = 'Submitting...';
       submitBtn.disabled = true;
       if (formStatus) formStatus.textContent = '';
     });
 
-    // Handle success after Formspree redirect
+    // Handle success state when returning from Formspree
     function handleFormSuccess() {
       const urlParams = new URLSearchParams(window.location.search);
       
       if (urlParams.get('success') === 'true') {
+        // Hide the form
         form.style.display = 'none';
-        
+
+        // Show success message
         if (formStatus) {
           formStatus.innerHTML = `
             ✅ <strong>Registration Successful!</strong><br><br>
             Thank you! We have received your registration.<br>
             A team member will contact you soon.
           `;
+          formStatus.style.display = 'block';
           formStatus.style.color = 'var(--green)';
-          formStatus.style.padding = '20px';
+          formStatus.style.padding = '25px';
           formStatus.style.background = 'var(--green-light)';
           formStatus.style.borderRadius = 'var(--radius-md)';
           formStatus.style.textAlign = 'center';
+          formStatus.style.marginTop = '20px';
         }
 
-        // Clean URL
+        // Clean the URL
         window.history.replaceState({}, document.title, window.location.pathname);
       }
     }
 
-    // Check for success on page load
+    // Run success check when page loads
     handleFormSuccess();
+
+    // Optional: Reset form when user clicks browser back button
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        form.reset();
+        form.style.display = 'block';
+        if (formStatus) formStatus.style.display = 'none';
+      }
+    });
   }
 
   // ── Denomination CTA tag ──
