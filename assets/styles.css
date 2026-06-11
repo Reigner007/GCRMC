@@ -595,7 +595,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ════════════════════════════════
-   OFFICERS - Improved Image Display
+   INTERNATIONAL OFFICERS
 ════════════════════════════════ */
 .officers {
   padding: 90px 0;
@@ -605,7 +605,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .officers-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px;
 }
 
 .officer-card {
@@ -614,10 +614,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition);
+  max-width: 100%;
 }
 
 .officer-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   box-shadow: 0 12px 32px rgba(10,31,46,0.1);
 }
 
@@ -626,53 +627,72 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-width: 2px;
 }
 
-/* Improved Photo Container */
+/* Photo Container */
 .officer-photo {
   width: 100%;
-  aspect-ratio: 4 / 4.2;           /* Slightly taller than square */
+  aspect-ratio: 4 / 4.3;           /* Better face visibility */
   overflow: hidden;
   background: #f5f5f5;
-  position: relative;
 }
 
 .officer-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;     /* This pulls the image down */
+  object-position: top center;
   transition: transform 0.5s ease;
 }
 
 .officer-card:hover .officer-photo img {
-  transform: scale(1.06);
+  transform: scale(1.07);
 }
 
 .officer-info {
-  padding: 20px;
+  padding: 22px 20px;
+  text-align: center;
 }
 
-/* Rest of your styles remain the same */
 .officer-name {
   font-family: var(--font-head);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--navy);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   line-height: 1.3;
 }
 
 .officer-rank {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--green);
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-style: italic;
 }
 
 .officer-role {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   line-height: 1.5;
+}
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+  .officers-grid {
+    grid-template-columns: 1fr !important;   /* Force single column */
+    gap: 32px;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .officer-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .officers {
+    padding: 70px 0;
+  }
 }
 
 /* ════════════════════════════════

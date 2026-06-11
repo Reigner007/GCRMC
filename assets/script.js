@@ -119,52 +119,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (form && submitBtn) {
     
-    form.addEventListener('submit', function (e) {
-      const fullname = (form.fullname && form.fullname.value.trim()) || '';
-      const email = (form.email && form.email.value.trim()) || '';
-
-      if (!fullname || !email) {
-        if (formStatus) {
-          formStatus.textContent = 'Please fill in your name and email address.';
-          formStatus.style.color = '#c0392b';
-        }
-        e.preventDefault();   // Stop submission
-        return;
-      }
-
-      // Show loading state
+    form.addEventListener('submit', function () {
       submitBtn.textContent = 'Submitting...';
       submitBtn.disabled = true;
       if (formStatus) formStatus.textContent = '';
     });
 
-    // Handle success message after Formspree redirect
+    // Handle success after Formspree redirect
     function handleFormSuccess() {
       const urlParams = new URLSearchParams(window.location.search);
       
       if (urlParams.get('success') === 'true') {
-        if (form) form.style.display = 'none';
+        form.style.display = 'none';
         
         if (formStatus) {
           formStatus.innerHTML = `
             ✅ <strong>Registration Successful!</strong><br><br>
-            Thank you for registering with GCRMC.<br>
-            We have received your details and a team member will contact you soon.
+            Thank you! We have received your registration.<br>
+            A team member will contact you soon.
           `;
           formStatus.style.color = 'var(--green)';
-          formStatus.style.fontSize = '1.02rem';
           formStatus.style.padding = '20px';
           formStatus.style.background = 'var(--green-light)';
           formStatus.style.borderRadius = 'var(--radius-md)';
           formStatus.style.textAlign = 'center';
         }
 
-        // Clean the URL (remove ?success=true)
+        // Clean URL
         window.history.replaceState({}, document.title, window.location.pathname);
       }
     }
 
-    // Check success status when page loads
+    // Check for success on page load
     handleFormSuccess();
   }
 
