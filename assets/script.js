@@ -119,8 +119,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (form && submitBtn) {
 
+    // Client-side validation
+    function validateForm() {
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        field.style.borderColor = '';
+        const label = form.querySelector(`label[for="${field.id}"]`);
+        if (!field.value.trim()) {
+          field.style.borderColor = '#e74c3c';
+          if (label) label.style.color = '#e74c3c';
+          valid = false;
+        } else {
+          if (label) label.style.color = '';
+        }
+        if (field.type === 'email' && field.value.trim()) {
+          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!re.test(field.value.trim())) {
+            field.style.borderColor = '#e74c3c';
+            if (label) label.style.color = '#e74c3c';
+            valid = false;
+          }
+        }
+      });
+      if (!valid && formStatus) {
+        formStatus.textContent = 'Please fill in all required fields correctly.';
+        formStatus.style.color = '#e74c3c';
+      }
+      return valid;
+    }
+
+    // Clear error styles on input
+    form.querySelectorAll('input, select, textarea').forEach(field => {
+      field.addEventListener('input', function () {
+        this.style.borderColor = '';
+        const label = form.querySelector(`label[for="${this.id}"]`);
+        if (label) label.style.color = '';
+        if (formStatus) formStatus.textContent = '';
+      });
+    });
+
     // Handle form submission (loading state)
-    form.addEventListener('submit', function () {
+    form.addEventListener('submit', function (e) {
+      if (!validateForm()) {
+        e.preventDefault();
+        return;
+      }
       submitBtn.textContent = 'Submitting...';
       submitBtn.disabled = true;
       if (formStatus) formStatus.textContent = '';

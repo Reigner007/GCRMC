@@ -32,7 +32,7 @@
 
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { overflow-x: hidden; scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--font-body);
   color: var(--text);
@@ -367,7 +367,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .hero-title {
     white-space: normal;
     font-size: clamp(1.3rem, 5vw, 1.8rem);
@@ -567,7 +567,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     gap: 52px;
   }
   .president-photo-wrap { max-width: 240px; margin: 0 auto; }
-  .president-badge { font-size: 0.6rem; padding: 5px 12px; }
+  .president-badge {
+    font-size: 0.55rem;
+    padding: 5px 10px;
+    white-space: normal;
+    width: 90%;
+    max-width: 220px;
+  }
 }
 
 /* ════════════════════════════════
