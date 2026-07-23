@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════
-//  GCRMC — script.js
+//  ICRMC — script.js
 // ═══════════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', function () {

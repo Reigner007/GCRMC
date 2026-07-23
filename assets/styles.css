@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   GCRMC — Global Christian Rescue Missionary Chaplain
+   ICRMC — International Christian Rescue Missionary Chaplain
    styles.css
 ═══════════════════════════════════════════ */
 
@@ -933,7 +933,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  color: var(--green);
   flex-shrink: 0;
 }
 .contact-label {
