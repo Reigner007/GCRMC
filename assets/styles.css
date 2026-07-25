@@ -924,6 +924,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 14px;
   align-items: flex-start;
 }
+.contact-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+.contact-link:hover {
+  opacity: 0.75;
+}
 .contact-icon-wrap {
   width: 38px;
   height: 38px;
