@@ -375,6 +375,34 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ════════════════════════════════
+   PAGE HERO (sub-pages)
+════════════════════════════════ */
+.page-hero {
+  padding: calc(var(--nav-h) + 72px) 0 56px;
+  background: var(--navy);
+  text-align: center;
+}
+.page-hero .eyebrow {
+  color: #5dcaa5;
+  margin-bottom: 12px;
+}
+.page-hero h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.page-hero p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.05rem;
+  font-weight: 300;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ════════════════════════════════
    NATIONS / FLAGS
 ════════════════════════════════ */
 .nations {

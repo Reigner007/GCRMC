@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ── Navbar: scroll shadow + active link ──
   const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-  const sections = document.querySelectorAll('section[id]');
 
   function onScroll() {
     if (window.scrollY > 20) {
@@ -19,20 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       navbar.classList.remove('scrolled');
     }
-
-    // Active nav link tracking
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      const href = link.getAttribute('href').replace('#', '');
-      if (href === current) link.classList.add('active');
-    });
 
     // Back to top visibility
     const btn = document.getElementById('back-to-top');
