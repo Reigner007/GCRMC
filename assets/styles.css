@@ -847,6 +847,57 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ════════════════════════════════
+   STORY / PRESIDENT'S MESSAGE
+════════════════════════════════ */
+.story {
+  padding: 90px 0;
+  background: var(--white);
+}
+.story-body {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.story-lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--green-dark);
+  line-height: 1.8;
+  margin-bottom: 24px !important;
+}
+.story-body p {
+  font-size: 0.98rem;
+  color: var(--text);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.story-body h3 {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin: 44px 0 14px;
+  padding-left: 16px;
+  border-left: 3px solid var(--green);
+  line-height: 1.4;
+}
+.story-body h3:first-child { margin-top: 0; }
+.story-verses {
+  color: var(--green-dark);
+  font-weight: 500;
+  font-style: italic;
+}
+.story-call {
+  background: var(--offwhite);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  margin-top: 28px;
+}
+.story-call p { margin-bottom: 10px; }
+.story-call p:last-child { margin-bottom: 0; }
+
+/* ════════════════════════════════
    AIMS & OBJECTIVES
 ════════════════════════════════ */
 .aims {
