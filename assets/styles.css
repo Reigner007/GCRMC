@@ -403,6 +403,99 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ════════════════════════════════
+   FLAG OFF EVENT ADVERT
+════════════════════════════════ */
+.event-banner {
+  position: relative;
+  background: var(--navy);
+  background-image: radial-gradient(circle at 15% 20%, rgba(42,139,87,0.25), transparent 40%),
+                    radial-gradient(circle at 85% 80%, rgba(93,202,165,0.15), transparent 45%);
+  padding: 84px 0 72px;
+  overflow: hidden;
+  text-align: center;
+}
+.event-ribbon {
+  position: absolute;
+  top: 22px;
+  right: -38px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 48px;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.event-banner-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+.event-text .eyebrow { color: #5dcaa5; }
+.event-title {
+  font-family: var(--font-head);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+.event-accent { color: #5dcaa5; }
+.event-sub {
+  color: rgba(255,255,255,0.65);
+  font-size: 1rem;
+  font-weight: 300;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: var(--green);
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius-lg);
+  padding: 18px 40px;
+  margin-top: 6px;
+}
+.event-date-day {
+  font-family: var(--font-head);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+}
+.event-date-day sup { font-size: 1.2rem; vertical-align: super; }
+.event-date-month {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+}
+.event-cta {
+  border-color: rgba(255,255,255,0.35);
+  color: var(--white);
+}
+.event-cta:hover {
+  border-color: #5dcaa5;
+  color: #5dcaa5;
+}
+
+@media (max-width: 768px) {
+  .event-banner { padding: 64px 0 56px; }
+  .event-ribbon { right: -46px; }
+  .event-date-day { font-size: 2rem; }
+}
+
+/* ════════════════════════════════
    NATIONS / FLAGS
 ════════════════════════════════ */
 .nations {
